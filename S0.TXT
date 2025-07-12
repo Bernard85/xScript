@@ -1,0 +1,4 @@
+xexec script(ovrref) parm(#1 #2 #3);
+
+update #3
+   set srcdat=0;

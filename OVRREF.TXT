@@ -1,0 +1,4 @@
+monitor;
+  drop alias   qtemp/#3;
+  create alias qtemp/#3 for #1/#2(#3);
+end-monitor;

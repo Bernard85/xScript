@@ -1,0 +1,4 @@
+monitor;
+  enddbg;
+
+STRDBG pGM(#1) UPDPROD(*YES);

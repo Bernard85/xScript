@@ -1,0 +1,20 @@
+// clone the
+MONITOR;
+  DLTF QTEMP/MYQAUOOPT;
+END-MONITOR;
+create table qtemp/myQauoopt like qauoopt;
+// insert specific values
+insert into QTEMP/MYQAUOOPT
+values
+('XE', 'STRSEU SRCFILE(xscript) SRCMBR(&N)')      ,
+('XG', 'XEXEC SCRIPT(&n)')                        ,
+('XL', 'STRSEU SRCFILE(xlog) SRCMBR(&N) OPTION(5)');
+// Insert values if not exists
+meRGE INTO BERNARD85/MYQAUoopt a
+USING (SELECT * from QTEMP/myqauoopt) b
+ON a.option = b.option
+WHEN NOT MATCHED THEN
+INSERT(a.option, a.command)
+VALUES(b.option, b.command);
+// delete temp file
+dltf qtemp/myQauoopt;

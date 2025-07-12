@@ -1,0 +1,14 @@
+monitor;
+  drop table bernard85/log4i;
+end-montitor;
+
+create table bernard85/log4i (l4ipid     int
+                             ,l4iid      int    generated always as identity
+                             ,l4itype    char(1)
+                             ,l4ibegin   timestamp
+                             ,l4iend     timestamp
+                             ,l4itag     varchar(30)
+                             ,l4itext    varchar(132)
+                             ,l4idata    varchar(30)
+                             ,l4icontext varchar(28)
+                             );

@@ -1,0 +1,5 @@
+monitor;
+  addpfm xscript #1;
+  drop alias #1;
+  create alias #1 for xscript(#1);
+end-monitor;

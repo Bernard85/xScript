@@ -1,0 +1,28 @@
+monitor;
+  drop table U7ENVR;
+end-monitor;
+
+CREATE TABLE U7ENVR
+ (U7MSG1     CHAR(100)
+ ,U7APPPATH  CHAR(50)
+ ,U7CLIPATH  CHAR(50)
+ );
+
+LABEL ON table  U7ENVR IS 'Environment variables';
+
+LABEL ON COLUMN U7ENVR.U7MSG1     TEXT IS 'Welcome message';
+LABEL ON COLUMN U7ENVR.U7APPPATH  TEXT IS 'Path for application';
+LABEL ON COLUMN U7ENVR.U7CLIPATH  TEXT IS 'Path for client';
+
+call filertv ('U7ENVR' '' 'N' 'Y' 'Y' 'N' 'Y');
+
+DROP TABLE U7ENVR;
+
+monitor;
+  CRTDTAARA DTAARA(U7ENV) TYPE(*CHAR) LEN(2000) TEXT(U7);
+end-monitor;
+
+CHGDTAARA DTAARA(U7ENV  (1 100)) VALUE('Hi all from v7 version');
+CHGDTAARA DTAARA(U7ENV (101 50)) VALUE('/home/bernard85/U7/');
+CHGDTAARA DTAARA(U7ENV (151 50)) VALUE('/home/bernard85/XXXX/');
+CHGDTAARA DTAARA(U7ENV (200 1800)) VALUE(' ');

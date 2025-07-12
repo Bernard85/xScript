@@ -1,0 +1,55 @@
+// x'3A' 3A blue
+// x'20' 20 green
+// x'38' 38 Pink
+// x'28' 28 Red
+// x'30' 30 turq
+// x'22' 22 white
+// x'32' 32 yellow
+
+// x'3E' 3E blue/Underline
+// x'24' 24 green/underlined
+// x'3C' 3C Pink/Underline
+// x'2C' 2C Red/Underline
+// x'34' 34 turq/Underline
+// x'26' 26 white/Underline
+// x'36' 36 yellow/Underline
+
+// x'3B' 3B blue/reverse
+// x'21' 21 green/reverse
+// x'39' 39 pink/reverse
+// x'29' 29 red/reverse
+// x'31' 31 turq/reverse
+// x'23' 23 white/reverse
+// x'33' 33 yell/reverse
+// x'2B' 2B red/blink
+--
+
+xexec script(ovrscrwrk) parm(color_);
+
+insert into color_
+select *
+  from xscript
+where srcseq<(select srcseq from xscript where srcdta='--');
+
+update color_ set srcdta=replace(srcdta, ' 3A', x'3A');
+update color_ set srcdta=replace(srcdta, ' 20', x'20');
+update color_ set srcdta=replace(srcdta, ' 38', x'38');
+update color_ set srcdta=replace(srcdta, ' 28', x'28');
+update color_ set srcdta=replace(srcdta, ' 30', x'30');
+update color_ set srcdta=replace(srcdta, ' 22', x'22');
+update color_ set srcdta=replace(srcdta, ' 32', x'32');
+update color_ set srcdta=replace(srcdta, ' 3E', x'3E');
+update color_ set srcdta=replace(srcdta, ' 24', x'24');
+update color_ set srcdta=replace(srcdta, ' 3C', x'3C');
+update color_ set srcdta=replace(srcdta, ' 2C', x'2C');
+update color_ set srcdta=replace(srcdta, ' 34', x'34');
+update color_ set srcdta=replace(srcdta, ' 26', x'26');
+update color_ set srcdta=replace(srcdta, ' 36', x'36');
+update color_ set srcdta=replace(srcdta, ' 3B', x'3B');
+update color_ set srcdta=replace(srcdta, ' 21', x'21');
+update color_ set srcdta=replace(srcdta, ' 39', x'39');
+update color_ set srcdta=replace(srcdta, ' 29', x'29');
+update color_ set srcdta=replace(srcdta, ' 31', x'31');
+update color_ set srcdta=replace(srcdta, ' 23', x'23');
+update color_ set srcdta=replace(srcdta, ' 33', x'33');
+update color_ set srcdta=replace(srcdta, ' 2B', x'2B');

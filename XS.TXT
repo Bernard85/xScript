@@ -1,0 +1,22 @@
+// 1 -> #1
+// 2 -> #2
+// 3 -> #3
+// 4 -> #4
+
+xexec script(ovrscrwrk) parm(#0$);
+
+insert into #0$ (srcdta) values
+ 'CPYTOIMPF FROMFILE(&1/&2 &3)'
+,'          TOSTMF(&4)        '
+,'          MBROPT(*REPLACE)  '
+,'          STMFCCSID(819)    '
+,'          RCDDLM(*CRLF)     '
+,'          STRDLM(*NONE)     '
+,'          STRESCCHR(*NONE); ';
+
+update #0$ set srcdta=replace(srcdta,'&1','#1');
+update #0$ set srcdta=replace(srcdta,'&2','#2');
+update #0$ set srcdta=replace(srcdta,'&3','#3');
+update #0$ set srcdta=replace(srcdta,'&4',''''!!trim('#4')!!'''');
+
+xexec script(#0$);

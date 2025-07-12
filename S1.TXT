@@ -1,0 +1,16 @@
+self-submit job(#1);
+
+monitor;
+  DLTBNDDIR BNDDIR(#1);
+  DLTSRVPGM SRVPGM(#1);
+end-monitor;
+
+// Compile module
+crtrpgmod srcfile(src) module(qtemp/#1);
+
+// Create Service Program itself
+CRTSRVPGM SRVPGM(#1) MODULE(qtemp/#1*) EXPORT(*ALL);
+
+// Create bound directory
+CRTBNDDIR BNDDIR(#1);
+addbnddire bnddir(#1) obj((#1 *srvpgm));
