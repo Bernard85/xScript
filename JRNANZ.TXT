@@ -1,0 +1,1 @@
+?#0     TEXT('Test 12 Jul 25') SAVPATH('12-07-2025')  JRN(MYJRN) enttyp(*rcd);
