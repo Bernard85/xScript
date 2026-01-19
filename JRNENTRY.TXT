@@ -1,0 +1,20 @@
+DSPJRN JRN(MYJRN) OUTPUT(*OUTFILE) OUTFILFMT(*TYPE4) OUTFILE(QTEMP/X);
+
+create table qtemp/jrnentry as(select joentL DTAL
+                                     ,joSEQN   SEQN
+                                     ,joCODE   CODE
+                                     ,joENTT   ENTT
+                                     ,joTSTP   TSTP
+                                     ,joJOB    JOBNO
+                                     ,JOUSeR   JOBUSR
+                                     ,joJOB    JOBID
+                                     ,joPGM    PGM
+                                     ,joOBJ    OBJ
+                                     ,joLIB    LIB
+                                     ,joMBR    MBR
+                                     ,joCTRR   CTRR
+                                     ,joUSPF   USPF
+                                     ,joSYNM   SYNM
+                                     ,joctrr   ASEQ
+                                     ,joctrr   APOS
+                                from x)with no data;
